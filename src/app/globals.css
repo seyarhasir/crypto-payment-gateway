@@ -1,26 +1,72 @@
-@import "tailwindcss";
+@import "tw-animate-css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --background: 0 0% 98%; /* Light gray background */
+  --foreground: 0 0% 10%; /* Dark text */
+  --card: 0 0% 100%; /* White cards */
+  --card-foreground: 0 0% 10%; /* Dark text on cards */
+  --popover: 0 0% 100%; /* White popovers */
+  --popover-foreground: 0 0% 10%; /* Dark text on popovers */
+  --primary: 142 71% 45%; /* Green (equivalent to #22c55e) */
+  --primary-foreground: 0 0% 98%; /* White text on primary */
+  --secondary: 167 68% 60%; /* Teal (equivalent to #2dd4bf) */
+  --secondary-foreground: 0 0% 10%; /* Dark text on secondary */
+  --muted: 0 0% 90%; /* Light gray for muted elements */
+  --muted-foreground: 0 0% 40%; /* Gray text */
+  --accent: 45 93% 47%; /* Yellow (equivalent to #facc15) */
+  --accent-foreground: 0 0% 10%; /* Dark text on accent */
+  --destructive: 0 84% 60%; /* Red for destructive actions */
+  --border: 0 0% 80%; /* Light gray border */
+  --input: 0 0% 80%; /* Light gray input background */
+  --ring: 142 71% 45%; /* Green ring for focus */
+  --chart-1: 142 71% 45%; /* Green for charts */
+  --chart-2: 167 68% 60%; /* Teal for charts */
+  --chart-3: 45 93% 47%; /* Yellow for charts */
+  --chart-4: 220 70% 50%; /* Blue for charts */
+  --chart-5: 340 70% 50%; /* Pink for charts */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: 0 0% 10%; /* Dark background */
+  --foreground: 0 0% 90%; /* Light text */
+  --card: 0 0% 15%; /* Dark cards */
+  --card-foreground: 0 0% 90%; /* Light text on cards */
+  --popover: 0 0% 15%; /* Dark popovers */
+  --popover-foreground: 0 0% 90%; /* Light text on popovers */
+  --primary: 142 71% 45%; /* Green remains the same */
+  --primary-foreground: 0 0% 98%; /* White text on primary */
+  --secondary: 167 68% 50%; /* Slightly darker teal */
+  --secondary-foreground: 0 0% 90%; /* Light text on secondary */
+  --muted: 0 0% 20%; /* Dark gray for muted elements */
+  --muted-foreground: 0 0% 60%; /* Lighter gray text */
+  --accent: 45 93% 47%; /* Yellow remains the same */
+  --accent-foreground: 0 0% 90%; /* Light text on accent */
+  --destructive: 0 84% 60%; /* Red for destructive actions */
+  --border: 0 0% 20%; /* Dark gray border */
+  --input: 0 0% 20%; /* Dark gray input background */
+  --ring: 142 71% 45%; /* Green ring for focus */
+  --chart-1: 142 71% 45%; /* Green for charts */
+  --chart-2: 167 68% 50%; /* Teal for charts */
+  --chart-3: 45 93% 47%; /* Yellow for charts */
+  --chart-4: 220 70% 40%; /* Darker blue for charts */
+  --chart-5: 340 70% 40%; /* Darker pink for charts */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
 }
